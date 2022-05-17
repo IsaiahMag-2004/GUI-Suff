@@ -18,16 +18,18 @@ while True:
     #Conversion
     if event == "-CONVERTER_BUTTON-":
         #Collect the values
-        user_input = float(values["-INPUT-"])
+        user_input = values["-INPUT-"]
         conversion_choice = values["-SPINNER-"]
 
-        
-        #convert
-        if conversion_choice == "km to mile":
-            # window["-OUTPUT-"].update(user_input * 0.62137)
-            window["-OUTPUT-"].update(user_input * 0.62137)
-        else:
-            # window["-OUTPUT-"].update(user_input * 2.20462)
-            window["-OUTPUT-"].update(user_input * 2.20462)
+        if user_input.isnumeric():  #makes sure that the entered value is a number and if it isnt it wont let you move on till you put one in that is
+            #convert
+            user_input = float(user_input)
+            
+            if conversion_choice == "km to mile":
+                # window["-OUTPUT-"].update(user_input * 0.62137)
+                window["-OUTPUT-"].update(user_input * 0.62137)
+            else:
+                # window["-OUTPUT-"].update(user_input * 2.20462)
+                window["-OUTPUT-"].update(user_input * 2.20462)
 
 window.close
