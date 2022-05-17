@@ -24,12 +24,14 @@ while True:
         if user_input.isnumeric():  #makes sure that the entered value is a number and if it isnt it wont let you move on till you put one in that is
             #convert
             user_input = float(user_input)
-            
+
             if conversion_choice == "km to mile":
                 # window["-OUTPUT-"].update(user_input * 0.62137)
                 window["-OUTPUT-"].update(user_input * 0.62137)
             else:
                 # window["-OUTPUT-"].update(user_input * 2.20462)
                 window["-OUTPUT-"].update(user_input * 2.20462)
+        else:
+            window["-OUTPUT-"].update(Please Enter A Number)
 
 window.close
