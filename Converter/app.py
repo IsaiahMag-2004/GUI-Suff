@@ -32,6 +32,6 @@ while True:
                 # window["-OUTPUT-"].update(user_input * 2.20462)
                 window["-OUTPUT-"].update(user_input * 2.20462)
         else:
-            window["-OUTPUT-"].update(Please Enter A Number)
+            window["-OUTPUT-"].update("Please Enter A Number")
 
 window.close
