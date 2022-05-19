@@ -1,0 +1,73 @@
+# from pickle import TRUE
+# import PySimpleGUI as sg
+
+# #note: The theme won't change on macOS
+
+# # Create window chaning theme
+# def create_window(theme):
+#     sg.theme(theme)
+#     sg.set_options(font="Franklin 14")
+#     button_size = (3,1)
+#     layout = [
+#         [sg.Text(" ", key="-TEXT-", font="Franklin 26", justification="center", expand_x=True, pad=(5,10), right_click_menu=theme_menu)],
+#         [sg.Button("E", expand_x=TRUE), sg.Button("C", key="-CLEAR-", expand_x=TRUE)],
+#         [sg.Button("7", size=button_size), sg.Button("8", size=button_size), sg.Button("9", size=button_size), sg.Button("/", size=button_size)],
+#         [sg.Button("4", size=button_size), sg.Button("5", size=button_size), sg.Button("6", size=button_size), sg.Button("*", size=button_size)],
+#         [sg.Button("1", size=button_size), sg.Button("2", size=button_size), sg.Button("3", size=button_size), sg.Button("-", size=button_size)],
+#         [sg.Button("0", expand_x=TRUE), sg.Button(".", size=button_size), sg.Button("+", size=button_size)]
+#     ]
+
+#     return sg.Window("Calculator", layout)
+
+# theme_menu = ["menu", ["LightGrey1", "dark", "DarkGray8", "Random"]] #Create the options for each possible theme in the right click menu, each one is essentially a button / event
+# window = create_window("LightGrey1")
+
+# current_num = []  #Stores the pressed numbers
+# full_operation = [] 
+
+# while True:
+#     event, values = window.read()
+#     if event == sg.WIN_CLOSED:
+#         break
+
+#     if event in theme_menu[1]:
+#         window.close() #The theme wont change as is, so you have to close the old window to get it to update
+#         window = create_window(event) #You pass in event, becuase in their own way when you chose one of the options 
+
+#     if event in ["0", "1", "2-", "3", "4", "5", "6", "7", "8", "9", "."]:
+#         current_num.append(event)
+#         num_string = "".join(current_num)
+#         window["-TEXT-"].update(num_string)
+
+#     if event in ["+", "-", "/", "*"]:
+#         full_operation.append("".join(current_num))
+#         current_num = []
+#         full_operation.apend(event)
+#         window["-TEXT-"].update("")
+#     if event =="-ENTER-":
+#         full_operation.append(event)
+#         result = eval("".join(full_operation)) #What brings everything together, looking for math operations and making them actually run but it must be a string for it to work
+#         window["-TEXT-"].update(result) 
+#         full_operation = [] #Clear so we can continue to work without getting strange results
+#     if event == "-CLEAR-":
+#         current_num = []
+#         full_operation = 
+#         window["-TEXT-"].update("")
+
+# window.close()
+
+# """
+# Customization
+# - You can set a theme of the program with sg.theme
+# - You can customize each individually using sg.set_options
+# - You can see the theme options by typing a random theme and seeing the error output when you go to run the program
+# - You can find all the options for set_opton just like every other element on PySimpleGUIS website
+# - Each individual elemnt has its own set of parameters you can set 
+# - expand_x - used to fill all the space from left to right
+# - When moving text from the left side of the screen to righ you have two options:
+#     - justification
+#         - You have to make sure that the text box spans the width of the window
+#     - sg.Push
+# - Dynamic Theming:
+#     - Gonna close the origional window when we chose a new theme, and open the new window with the selected theme
+# """
